@@ -87,3 +87,148 @@ public class Demo {
 | Current Use            | Widely used in Java world         | Less used in Java today                    |
 
 ---
+
+### **JDBC Architectures:**
+
+- JDBC Architecture explains how a Java program communicates with a database using the JDBC API.
+- Components Involved:
+
+| Component               | Role                                                   |
+| ----------------------- | ------------------------------------------------------ |
+| Java Application        | The program written by you in Java                     |
+| JDBC API                | Java classes and interfaces to connect to the database |
+| JDBC Driver Manager     | Manages the JDBC drivers and creates connections       |
+| JDBC Driver             | Converts Java calls to database-specific calls         |
+| Database                | Stores your actual data (like MySQL, Oracle, etc.)     |
+
+- Java Application:
+    - You write code to:
+    - Connect to DB
+    - Run queries
+    - Display results
+
+- JDBC API:
+    - You use Java classes like:
+    - `DriverManager`
+    - `Connection`
+    - `Statement`
+    - `ResultSet`
+
+- JDBC DriverManager:
+    - It chooses the right JDBC Driver
+    - Manages connections to different types of databases
+
+- JDBC Driver:
+    - Converts JDBC function calls into native calls for the database
+    - Example: `MySQLDriver`, `OracleDriver`, etc.
+
+- Database:
+    - Executes SQL queries (like `SELECT * FROM student`)
+    - Sends data/results back to Java program
+
+- There are two common architectures:
+    - 2-tier architecture
+    - 3-tier architecture
+
+---
+
+#### **2-Tier Architecture:**
+
+- Your Java Application directly connects to the Database using JDBC.
+- Fast and simple
+- Not suitable for large, distributed applications
+
+---
+
+##### **Structure:**
+
+```
++--------------------+
+|  Java Application  |
++--------------------+
+         |
+         | JDBC API
+         ↓
++--------------------+
+|   Database Server   |
++--------------------+
+```
+
+---
+
+##### **Example:**
+
+- We create a Java program to manage student records.
+- Java → Connects to MySQL database directly
+- Java sends: `SELECT * FROM student`
+- MySQL sends result back → Java prints it
+- Used in:
+    - Small desktop applications
+    - College assignments
+    - Local projects
+
+---
+
+#### **3-Tier Architecture:**
+
+- Your Java Application talks to a middle layer (like a server), and that server talks to the database.
+- More secure
+- Scalable for big applications
+- Business logic is separate
+- More setup and complex
+
+---
+
+##### **Structure:**
+
+```
++--------------------+
+|  Java Application  |  ← UI or Frontend
++--------------------+
+         |
+         | HTTP Request (e.g., via Servlet or JSP)
+         ↓
++--------------------+
+|   Application Server (Tomcat, Spring) |
+|   (Business Logic & JDBC here)        |
++--------------------+
+         |
+         | JDBC API
+         ↓
++--------------------+
+|   Database Server   |
++--------------------+
+```
+
+---
+
+##### **Example:**
+
+- Java App (frontend) sends request: "Add student"
+- Server (backend using Servlet/JSP/Spring) receives request
+- Server runs JDBC code: `INSERT INTO student VALUES (...)`
+- Data is added to database
+- Server sends back a success message
+- Used in:
+    - Web applications
+    - Enterprise systems
+    - Real-world professional apps
+
+---
+
+### **Main Components of JDBC API:**
+
+| Component           | Purpose                                                          |
+| ------------------- | ---------------------------------------------------------------- |
+| `DriverManager`     | Connects your Java program to the correct JDBC driver            |
+| `Connection`        | Represents the connection to the database                        |
+| `Statement`         | Used to execute SQL queries (like SELECT, INSERT)                |
+| `PreparedStatement` | Like `Statement`, but used for dynamic queries (with parameters) |
+| `CallableStatement` | Used to call stored procedures in the database                   |
+| `ResultSet`         | Stores output from SELECT queries                                |
+| `SQLException`      | Handles errors during JDBC operations                            |
+| `ResultSetMetaData` | Gives info about the columns in a ResultSet                      |
+| `SQLWarning`        | Handles non-critical warnings                                    |
+| `Driver`            | Interface that every JDBC driver must implement                  |
+
+---
