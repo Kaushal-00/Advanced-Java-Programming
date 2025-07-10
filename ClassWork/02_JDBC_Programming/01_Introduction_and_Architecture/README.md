@@ -1,4 +1,4 @@
-## **Introduction to JDBC:**
+# **Introduction to JDBC:**
 
 - JDBC = Java Database Connectivity
 - It is a Java API (a collection of pre-defined classes and interfaces) that lets your Java program connect and talk to a database, like:
@@ -7,7 +7,7 @@
     - PostgreSQL
     - SQLite
 
-### **Used For:**
+## **Used For:**
 
 - Connecting Java to database
 - Sending SQL queries (like `SELECT`, `INSERT`, `DELETE`)
@@ -23,7 +23,7 @@
 
 ---
 
-### **Example:**
+## **Example:**
 
 ```java
 import java.sql.*;
@@ -59,7 +59,7 @@ public class Demo {
 
 ---
 
-### **ODBC:**
+## **ODBC:**
 
 - ODBC = Open Database Connectivity
 - It is a standard API developed by Microsoft.
@@ -88,7 +88,7 @@ public class Demo {
 
 ---
 
-### **JDBC Architectures:**
+## **JDBC Architectures:**
 
 - JDBC Architecture explains how a Java program communicates with a database using the JDBC API.
 - Components Involved:
@@ -132,7 +132,7 @@ public class Demo {
 
 ---
 
-#### **2-Tier Architecture:**
+### **2-Tier Architecture:**
 
 - Your Java Application directly connects to the Database using JDBC.
 - Fast and simple
@@ -140,7 +140,7 @@ public class Demo {
 
 ---
 
-##### **Structure:**
+#### **Structure:**
 
 ```
 +--------------------+
@@ -156,7 +156,7 @@ public class Demo {
 
 ---
 
-##### **Example:**
+#### **Example:**
 
 - We create a Java program to manage student records.
 - Java → Connects to MySQL database directly
@@ -169,7 +169,7 @@ public class Demo {
 
 ---
 
-#### **3-Tier Architecture:**
+### **3-Tier Architecture:**
 
 - Your Java Application talks to a middle layer (like a server), and that server talks to the database.
 - More secure
@@ -179,7 +179,7 @@ public class Demo {
 
 ---
 
-##### **Structure:**
+#### **Structure:**
 
 ```
 +--------------------+
@@ -202,7 +202,7 @@ public class Demo {
 
 ---
 
-##### **Example:**
+#### **Example:**
 
 - Java App (frontend) sends request: "Add student"
 - Server (backend using Servlet/JSP/Spring) receives request
@@ -216,7 +216,7 @@ public class Demo {
 
 ---
 
-### **Main Components of JDBC API:**
+## **Main Components of JDBC API:**
 
 | Component           | Purpose                                                          |
 | ------------------- | ---------------------------------------------------------------- |
